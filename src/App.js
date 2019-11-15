@@ -1,6 +1,5 @@
 import React, { Component, Suspense } from "react";
 import { useTranslation, withTranslation, Trans } from "react-i18next";
-import logo from "./logo.svg";
 import "./App.css";
 
 // use hoc for class based components
@@ -32,15 +31,15 @@ function Page() {
   return (
     <div className="App">
       <div className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <Welcome />
         <button onClick={() => changeLanguage("de")}>de</button>
         <button onClick={() => changeLanguage("en")}>en</button>
+        <button onClick={() => changeLanguage("pt")}>pt</button>
+        <div>{t("description.part2")}</div>
       </div>
       <div className="App-intro">
         <MyComponent />
       </div>
-      <div>{t("description.part2")}</div>
     </div>
   );
 }
@@ -48,7 +47,6 @@ function Page() {
 // loading component for suspense fallback
 const Loader = () => (
   <div className="App">
-    <img src={logo} className="App-logo" alt="logo" />
     <div>loading...</div>
   </div>
 );
